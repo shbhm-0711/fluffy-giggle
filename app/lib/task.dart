@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Task {
   final String taskName;
   final String assignee;
-  final String dueDate;
+  final DateTime dueDate;
 
   Task(this.taskName, this.assignee, this.dueDate);
 }
@@ -85,7 +85,7 @@ class _AddTaskScreenState extends State<AddTaskScreen> {
                 final newTask = Task(
                   taskNameController.text,
                   assigneeController.text,
-                  dueDateController.text,
+                  dueDateController as DateTime,
                 );
                 widget.onAddTask(newTask);
               },

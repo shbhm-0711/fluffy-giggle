@@ -14,7 +14,7 @@ class TaskList extends StatelessWidget {
         return ListTile(
           title: Text(tasks[index].taskName),
           subtitle: Text(
-              "Assignee: ${tasks[index].assignee}\nDue Date: ${tasks[index].dueDate}"),
+              "Assignee: ${tasks[index].assignee}\nDue Date: ${(tasks[index].dueDate as DateTime)}"),
         );
       },
     );

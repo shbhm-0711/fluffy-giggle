@@ -6,36 +6,33 @@ import 'package:app/services/task_provider.dart';
 class AddTaskScreen extends StatelessWidget {
   final TextEditingController taskNameController = TextEditingController();
   final TextEditingController assigneeController = TextEditingController();
-  final TextEditingController dueDateController = TextEditingController();
+
+  AddTaskScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Add Task"),
+        title: const Text("Add Task"),
       ),
       body: Padding(
-        padding: EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
             TextField(
               controller: taskNameController,
-              decoration: InputDecoration(labelText: "Task Name"),
+              decoration: const InputDecoration(labelText: "Task Name"),
             ),
             TextField(
               controller: assigneeController,
-              decoration: InputDecoration(labelText: "Assignee"),
-            ),
-            TextField(
-              controller: dueDateController,
-              decoration: InputDecoration(labelText: "Due Date (YYYY-MM-DD)"),
+              decoration: const InputDecoration(labelText: "Assignee"),
             ),
             ElevatedButton(
               onPressed: () {
                 final newTask = Task(
                   taskNameController.text,
                   assigneeController.text,
-                  dueDateController.text,
+                  DateTime.now(),
                 );
 
                 // Use the TaskProvider to add the new task
@@ -44,7 +41,7 @@ class AddTaskScreen extends StatelessWidget {
 
                 Navigator.pop(context);
               },
-              child: Text("Save Task"),
+              child: const Text("Save Task"),
             ),
           ],
         ),
